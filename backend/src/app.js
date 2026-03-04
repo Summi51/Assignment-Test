@@ -23,6 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Serve uploaded files as static assets
 // e.g.  GET /uploads/<filename>.glb
+
 app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
 // ──────────────────────────────────────────────
@@ -40,6 +41,14 @@ app.get("/api/health", (req, res) => {
   });
 });
 
+// Root route (useful for platforms like Vercel to verify deployment)
+app.get("/", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "3D Product Viewer API is running.",
+    timestamp: new Date().toISOString(),
+  });
+});
 // ──────────────────────────────────────────────
 // 404 handler — catches unknown routes
 // ──────────────────────────────────────────────
