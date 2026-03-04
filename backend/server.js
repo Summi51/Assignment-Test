@@ -2,6 +2,7 @@ require("dotenv").config();
 const app = require("./src/app");
 const { connection } = require("./src/config/db");
 
+
 app.listen(process.env.PORT, async () => {
   try {
     await connection;
