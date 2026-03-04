@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Environment variables — NEVER commit the real .env
+.env
+
+# Uploaded 3D model files (optionally exclude from git)
+uploads/*.glb
+uploads/*.gltf
+
+# macOS artifacts
+.DS_Store
+
+# Logs
+*.log
+npm-debug.log*
