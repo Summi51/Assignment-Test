@@ -6,7 +6,7 @@ A full-stack MERN application for uploading, viewing, and managing 3D models (.g
 
 ## 🚀 Live Demo
 
-- **Frontend:** https://assignment-test-frontend.vercel.app/
+- **Frontend:** https://assignment-test-frontend.vercel.app
 - **Backend API:** https://assignment-test-taupe.vercel.app
 
 ---
