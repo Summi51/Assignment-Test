@@ -50,14 +50,16 @@ A full-stack MERN application for uploading, viewing, and managing 3D models (.g
 │   │   │   ├── ControlsSidebar.jsx
 │   │   │   ├── ModelUpload.jsx
 │   │   │   ├── SettingsPanel.jsx
-│   │   │   └── Viewer3D.jsx
+│   │   │   ├── Viewer3D.jsx
+│   │   │   ├── Login.jsx
+│   │   │   └── Signup.jsx
 │   │   ├── services/
 │   │   │   └── api.js
 │   │   ├── App.jsx
 │   │   └── main.jsx
 │   ├── index.html
 │   ├── vite.config.js
-│   └── package.json
+  │   └── package.json
 │
 ├── backend/
 │   ├── src/
@@ -67,11 +69,14 @@ A full-stack MERN application for uploading, viewing, and managing 3D models (.g
 │   │   │   ├── modelController.js
 │   │   │   └── settingsController.js
 │   │   ├── middleware/
+│   │   │   ├── authMiddleware.js
 │   │   │   └── uploadMiddleware.js
 │   │   ├── models/
 │   │   │   ├── Model3D.js
-│   │   │   └── ViewerSettings.js
+│   │   │   ├── ViewerSettings.js
+│   │   │   └── userModel.js
 │   │   ├── routes/
+│   │   │   ├── authRoutes.js
 │   │   │   ├── modelRoutes.js
 │   │   │   └── settingsRoutes.js
 │   │   └── app.js
