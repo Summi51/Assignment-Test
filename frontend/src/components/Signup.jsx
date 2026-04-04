@@ -10,7 +10,7 @@ const Logo = () => (
       <rect x="3" y="3" width="18" height="18" rx="3" ry="3"></rect>
       <path d="M7 12h10M7 16h6"></path>
     </svg>
-    <strong>Crafty Haven</strong>
+    <strong>Test Assignment</strong>
   </div>
 );
 
