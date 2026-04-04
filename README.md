@@ -145,6 +145,46 @@ Backend runs on `http://localhost:8080`
 - `GET /api/settings` — Get all settings
 - `PUT /api/settings/:id` — Update settings
 
+### Authentication
+- `POST /api/auth/register` — Register a new user. Required JSON: `{ name, email, password }`
+- `POST /api/auth/login` — Login and receive a JWT. Required JSON: `{ email, password }`
+- `GET /api/auth/profile` — Get current user profile (protected; send `Authorization: Bearer <token>`)
+
+Example (local):
+```bash
+curl -X POST http://localhost:8080/api/auth/register \
+  -H "Content-Type: application/json" \
+  -d '{"name":"Sam","email":"sam@example.com","password":"secret123"}'
+
+curl -X POST http://localhost:8080/api/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{"email":"sam@example.com","password":"secret123"}'
+```
+
+Example (deployed):
+```bash
+curl -X POST https://assignment-test-sage.vercel.app/api/auth/register \
+  -H "Content-Type: application/json" \
+  -d '{"name":"Sam","email":"sam@example.com","password":"secret123"}'
+
+curl -X POST https://assignment-test-sage.vercel.app/api/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{"email":"sam@example.com","password":"secret123"}'
+```
+
+Frontend notes
+- The frontend stores the JWT returned by `/api/auth/login` in `localStorage` under the key `token` and sends it with protected requests as the `Authorization: Bearer <token>` header.
+- Routes that require authentication will redirect to `/login` if no token is present in `localStorage`.
+
+Server / deployment notes
+- Make sure the following env variables are set for the backend (local `.env` or Vercel project settings):
+  - `MONGO_URI` — MongoDB connection string
+  - `JWT_SECRET` — Secret used to sign JWTs
+  - `PORT` — (optional for local development)
+
+Security note
+- This project uses stateless JWT auth. For production, consider using refresh tokens, HTTPS-only cookies, and token revocation strategies if needed.
+
 ---
 
 ## 🌐 Deployment
