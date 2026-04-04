@@ -25,6 +25,26 @@
   z-index: 10;
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-logout {
+  padding: 6px 12px;
+  background: transparent;
+  border: 1px solid #3a3a6a;
+  color: #c8c8ff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-logout:hover {
+  background: #4f52d035;
+}
+
 .header-brand {
   display: flex;
   align-items: center;

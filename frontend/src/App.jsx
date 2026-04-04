@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import Viewer3D from "./components/Viewer3D";
 import ModelUpload from "./components/ModelUpload";
 import ControlsSidebar from "./components/ControlsSidebar";
@@ -29,6 +29,13 @@ export default function App() {
     setDirectionalIntensity(directionalIntensity);
   };
 
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/login", { replace: true });
+  };
+
   return (
     <Routes>
       <Route
@@ -41,7 +48,12 @@ export default function App() {
                   <span className="header-icon">🧊</span>
                   <h1>3D Product Viewer</h1>
                 </div>
-                <span className="header-sub">MERN + Three.js Assignment</span>
+                <div style={{display:'flex',alignItems:'center',gap:12}}>
+                  <span className="header-sub">MERN + Three.js Assignment</span>
+                  <div className="header-actions">
+                    <button className="btn-logout" onClick={handleLogout}>Logout</button>
+                  </div>
+                </div>
               </header>
 
               <div className="app-body">
