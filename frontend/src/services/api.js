@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://assignment-test-sage.vercel.app/api",
+  baseURL: "https://assignment-test-taupe.vercel.app/api",
 });
 
 // ── Model APIs ──────────────────────────────────
