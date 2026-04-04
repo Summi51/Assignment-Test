@@ -4,6 +4,7 @@ const path = require("path");
 
 const modelRoutes = require("./routes/modelRoutes");
 const settingsRoutes = require("./routes/settingsRoutes");
+const { AuthRouter } = require("./routes/authRoutes");
 
 const app = express();
 
@@ -24,8 +25,11 @@ app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 // ──────────────────────────────────────────────
 // API Routes
 // ──────────────────────────────────────────────
+
 app.use("/api/models", modelRoutes);
 app.use("/api/settings", settingsRoutes);
+// Authentication & user routes
+app.use("/api/auth", AuthRouter);
 
 // Health-check route
 app.get("/api/health", (req, res) => {

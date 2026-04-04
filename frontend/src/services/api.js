@@ -23,3 +23,5 @@ export const saveSettings = (payload) => api.post("/settings", payload);
 export const getAllSettings = () => api.get("/settings");
 
 export const updateSettings = (id, payload) => api.put(`/settings/${id}`, payload);
+
+export default api;
